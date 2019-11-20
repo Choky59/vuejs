@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+      
+      <div id="app" class="container mt-5">
+            <h1>{{greet}}</h1>
+            <input type="text" class="form-control my-3" v-model="rawText" v-on:keyup.enter="addTask">
+            <button class="btn btn-primary" @click="addTask"> Add </button>
+
+            <div class="m-3" v-for="(tarea,index) of tareas">
+                    <div :class="tarea.background" role="alert">
+                       <div class="d-flex justify-content-between">
+                        <div>
+                            {{index+1}}.-{{tarea.tarea}}
+                        </div>
+                        <div>
+                            <button class="btn btn-success" @click="taskComplete(index)"> OK </button>
+                            <button class="btn btn-danger"  @click="taskNotComplete(index)"> X </button>
+                        </div>
+                       </div>
+                    </div>
+            </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="05.js"></script>
+  </body>
+</html>

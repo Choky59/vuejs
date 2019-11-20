@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue js</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <input type="text" v-model="nuevoRadik">
+        <input type="text" v-model="edad">
+        <button @click="addRadik">Add</button>
+        <ul>
+            <li v-for="member of radikales"> 
+                {{member.nombre}} -
+                <span v-if="member.state === true" > Es un radika </span>
+                <span v-if="member.edad < 24"> muy joven </span>
+                <span v-else> muy viejo </span>
+            </li>
+        </ul>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="02.js"></script>
+</html>
