@@ -1,0 +1,14 @@
+requisitos
+
+tener node.js instalado:
+https://nodejs.org/en/
+
+instalar vue cli
+npm install -g @vue/cli
+vue --version
+
+crear un proyecto 
+vue create "nombreDelProyecto"
+
+cd 15-vue_route
+npm run serve
