@@ -48,6 +48,11 @@
             console.log("action done")
 
           }
+        },
+        subirDatos: async function( { commit }) {
+          //await subir datos a la base de datos
+          //esta funcion puede ser no async
+          //por que la pagina ya hizo el render y no hace falta cargar mas elemntos
         }
       }) 
       const app = new Vue({

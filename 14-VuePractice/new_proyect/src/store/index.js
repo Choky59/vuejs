@@ -12,7 +12,6 @@ export default new Vuex.Store({
       { nombre: 'naranja', cantidad: 0 },
     ]
   },
-
   mutations: {
     //~~~~~~~~~~~~List~~~~~~~~~~~~
     increase(state, index) {

@@ -17,7 +17,6 @@ var app = new Vue({
         })
         localStorage.setItem('tareas-vue',JSON.stringify(this.tareas))
       },
-
       taskComplete(index) {
         this.tareas[index].background = 'alert alert-success'
         localStorage.setItem('tareas-vue',JSON.stringify(this.tareas))

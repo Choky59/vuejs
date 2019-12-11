@@ -6,7 +6,7 @@ Vue.component('hijo', {
       <button @click="decrement(2)">-</button>
       <h1> my son number is {{count}} </h1>
       <ul v-for="item of cursos">
-        <li> {{item.nombre}} </li>
+        <li> {{item.nombre}}: {{item.id}} </li>
       </ul>
 
     </div>
