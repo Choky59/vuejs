@@ -48,7 +48,7 @@ export default new Vuex.Store({
 
     getMeterReadings(state,mediciones){
       var noReadings = Object.keys(mediciones.data.data).length;
-      console.log(mediciones.data.data[0].timestamp)
+      //console.log(mediciones.data.data[0].timestamp)
       if(mediciones != null) {
         state.meterQuery = [];
         for (let i = 0; i < noReadings; i++) {

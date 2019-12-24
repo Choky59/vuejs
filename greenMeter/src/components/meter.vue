@@ -30,8 +30,6 @@
           
         </div>
         <div id="loadingAnimation" class=" overflow-auto border-bottom: line mb-1" style="text-align: center; height: 500px; width: 100%;" >
-                  
-                  
                 <div id='canvasID'></div>
                   <table class= "table nota table-striped">
                     <thead style="background: white;"> 
@@ -75,7 +73,6 @@
 
 <script>
 import {mapMutations, mapActions, mapState} from 'vuex'
-
 var load =  require("@/components/canvases/loading.js")
 
 var d = new Date()
@@ -96,7 +93,6 @@ const month = {
 }
 export default {
     created() {
-        
         this.noReadings("Loading...")
         this.date = `${d.getDate()}/${month[d.getMonth() + 1]}/${d.getFullYear()}`,
         this.meterRequest = {
@@ -104,12 +100,15 @@ export default {
           start: start,
           end: Date.now()
         }
-        this.fetchMeter(this.meterRequest)
     },
     mounted() {
-      const P5 = require('p5')
-      new P5(load.main) 
-      load.notLoading();
+        const P5 = require('p5')
+        new P5(load.main) 
+        this.response = this.fetchMeter(this.meterRequest)
+        this.response
+            .then(() => {
+              load.notLoading();
+            })
     },
     computed: {
         ...mapState(['meterQuery'])
@@ -139,7 +138,7 @@ export default {
     },
     data() {
         return {
-            days: ['day',1,2,3,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,23,25,26,27,28,29,30,31],
+            days: ['day',1,2,3,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
             date: ``,
             month: {
                 0: 'month', 1:'Jan', 2:'Feb',3:'Mar', 4:'Apr',5:'May',6:'Jun',

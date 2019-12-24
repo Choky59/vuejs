@@ -1,7 +1,7 @@
 var myWidth, myHeight, canvas,s;
 let i = 0 ;
 let counter = 0;
-let turn = false;
+let turn = 0;
 
 export function main(_p5) {
 
@@ -9,14 +9,13 @@ export function main(_p5) {
   
   s.preload = () => {
     //agregar imagen
-    
-    s.noLoop();
   }
 
   s.setup = () => {
-    
-    myWidth = s.select(`#canvasID`);
-    myHeight = s.select(`#loadingAnimation`)
+    i=0;
+    myWidth = s.select(`#loadingAnimation`);
+    myHeight = s.select(`#loadingAnimation`);
+
     canvas = s.createCanvas(myWidth.width, myHeight.height)
     //canvas.mouseOver(s.doSomething)
     //canvas.mouseOut(s.stopSomething)
@@ -28,7 +27,7 @@ export function main(_p5) {
     s.noFill(255);
     s.stroke(41,252,53)
     s.strokeWeight(6)
-
+    
 
 
   }
@@ -39,16 +38,18 @@ export function main(_p5) {
 
     if(i > 4.67239) {
       i = 0;
-      turn = !turn;
-      if(turn) {
+      if(turn == 0) {
         s.stroke(37 , 222,  202);
-
       }
-      else {
+      else if (turn == 1) {
+        s.stroke(255)
+      } else {
         s.stroke(41,252,53)
+        turn = -1;
       }
-
+      turn += 1;
     }
+
   }
   
   s.mousePressed = () => {
@@ -73,7 +74,7 @@ export function main(_p5) {
 
 export function notLoading() {
   canvas.remove()
-  s.noLoop()
+  s.noLoop();
 }
 
 export function loading() {
